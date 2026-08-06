@@ -1,2 +1,0 @@
-# Birthday
-Birthday mini project
