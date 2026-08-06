@@ -1,0 +1,85 @@
+.scene-gift {
+  background: radial-gradient(circle at center, rgba(255,238,190,.28), transparent 48%);
+}
+
+.gift-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(82vw, 420px);
+  aspect-ratio: 1;
+}
+
+.gift-light {
+  position: absolute;
+  width: 64%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 238, 190, .8), transparent 64%);
+  filter: blur(10px);
+  opacity: 0;
+}
+
+.gift-box {
+  position: relative;
+  width: 72%;
+  height: 56%;
+  margin-top: 12%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.gift-body,
+.gift-lid,
+.gift-ribbon-vertical,
+.gift-ribbon-horizontal {
+  position: absolute;
+  display: block;
+}
+
+.gift-body {
+  inset: 26% 0 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #9ed1ee, #f6c6da);
+  box-shadow: var(--shadow);
+}
+
+.gift-lid {
+  left: -4%;
+  right: -4%;
+  top: 11%;
+  height: 23%;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f9d5e2, #b9ddf5);
+  box-shadow: 0 18px 36px rgba(0,0,0,.18);
+  transform-origin: left bottom;
+}
+
+.gift-ribbon-vertical {
+  left: 44%;
+  top: 11%;
+  bottom: 0;
+  width: 12%;
+  background: linear-gradient(#fff0b9, var(--gold));
+}
+
+.gift-ribbon-horizontal {
+  left: 0;
+  right: 0;
+  top: 45%;
+  height: 14%;
+  background: linear-gradient(90deg, #fff0b9, var(--gold), #fff0b9);
+}
+
+.gift-box.is-cut .gift-ribbon-horizontal { opacity: 0; }
+.gift-box.is-unwrapped .gift-ribbon-vertical { opacity: 0; }
+.gift-box.is-unwrapped .gift-body { filter: saturate(1.35) brightness(1.1); }
+
+.gift-instruction {
+  position: absolute;
+  bottom: 10vh;
+  color: rgba(255,250,248,.86);
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-weight: 700;
+}

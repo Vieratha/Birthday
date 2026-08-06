@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8dce8">
+    <meta name="description" content="A cinematic interactive birthday story.">
+    <title>The Door to Our Story</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/door.css">
+    <link rel="stylesheet" href="css/room.css">
+    <link rel="stylesheet" href="css/gift.css">
+    <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/letter.css">
+  </head>
+  <body>
+    <main id="experience" aria-live="polite">
+      <canvas id="starfield" aria-hidden="true"></canvas>
+      <div id="particles" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <section class="scene scene-loading is-active" data-scene="loading">
+        <div class="loader-orbit" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="loading-copy">A little universe is opening...</p>
+      </section>
+
+      <section class="scene scene-door" data-scene="door">
+        <div class="moon-glow" aria-hidden="true"></div>
+        <div class="door-stage">
+          <button class="door" id="storyDoor" aria-label="Knock on the door">
+            <span class="door-panel"></span>
+            <span class="door-light"></span>
+            <span class="door-handle"></span>
+          </button>
+          <div class="door-shadow" aria-hidden="true"></div>
+        </div>
+        <p class="typed-line" id="doorPrompt"></p>
+        <div class="knock-count" id="knockCount" aria-label="Knock progress">
+          <span></span><span></span><span></span>
+        </div>
+      </section>
+
+      <section class="scene scene-pin" data-scene="pin">
+        <div class="pin-card">
+          <p class="eyebrow">The lock whispers</p>
+          <h1>Enter the date that started a tiny forever.</h1>
+          <div class="pin-display" id="pinDisplay" aria-label="PIN input">--------</div>
+          <div class="keypad" id="keypad" role="group" aria-label="Numeric keypad"></div>
+          <p class="pin-message" id="pinMessage"></p>
+        </div>
+      </section>
+
+      <section class="scene scene-room" data-scene="room">
+        <div class="room-backdrop" aria-hidden="true">
+          <div class="window"><span></span></div>
+          <div class="string-lights"></div>
+          <div class="floor-glow"></div>
+        </div>
+        <div class="celebration-copy">
+          <p class="eyebrow">The room remembers</p>
+          <h2>Happy Birthday</h2>
+        </div>
+      </section>
+
+      <section class="scene scene-gift" data-scene="gift">
+        <div class="gift-wrap" id="giftWrap">
+          <div class="gift-light" aria-hidden="true"></div>
+          <button class="gift-box" id="giftBox" aria-label="Open the gift">
+            <span class="gift-lid"></span>
+            <span class="gift-ribbon-vertical"></span>
+            <span class="gift-ribbon-horizontal"></span>
+            <span class="gift-body"></span>
+          </button>
+        </div>
+        <p class="gift-instruction" id="giftInstruction">Swipe across the ribbon.</p>
+      </section>
+
+      <section class="scene scene-book" data-scene="book">
+        <div id="storybook" class="storybook" aria-label="Story book">
+          <article class="book-page cover">
+            <p class="eyebrow">The Door to Our Story</p>
+            <h2>For the one who makes ordinary days glow</h2>
+          </article>
+          <article class="book-page">
+            <h3>Prologue</h3>
+            <p data-type>Some doors open into rooms. This one opens into every soft moment I have kept for you.</p>
+          </article>
+          <article class="book-page memory">
+            <h3>Memory I</h3>
+            <p data-type>The first laugh. The kind that made time forget what it was doing.</p>
+          </article>
+          <article class="book-page memory">
+            <h3>Memory II</h3>
+            <p data-type>Every small kindness became a lantern. I have been following that light ever since.</p>
+          </article>
+          <article class="book-page gallery-page">
+            <h3>Little Frames</h3>
+            <div class="gallery-grid" id="galleryGrid">
+              <button class="polaroid" data-caption="A sky-blue afternoon"><span></span><em>Blue Day</em></button>
+              <button class="polaroid pink" data-caption="Soft pink, softer laughter"><span></span><em>Soft Laugh</em></button>
+              <button class="polaroid gold" data-caption="A golden promise"><span></span><em>Golden</em></button>
+            </div>
+          </article>
+          <article class="book-page">
+            <h3>Birthday Wish</h3>
+            <p data-type>May your year feel protected, curious, brave, and full of rooms where you are loved exactly as you are.</p>
+          </article>
+          <article class="book-page">
+            <h3>Future Hopes</h3>
+            <p data-type>More stories. More morning light. More tiny reasons to pause and say: this is beautiful.</p>
+          </article>
+          <article class="book-page final-page">
+            <h3>One Last Thing</h3>
+            <button class="envelope" id="envelope" aria-label="Open the secret letter">
+              <span></span>
+            </button>
+          </article>
+        </div>
+        <p class="book-hint">Turn the pages by dragging or tapping the page corners.</p>
+      </section>
+
+      <section class="scene scene-letter" data-scene="letter">
+        <div class="letter-stage">
+          <div class="letter-paper">
+            <p class="eyebrow">Secret Letter</p>
+            <p id="letterText"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-ending" data-scene="ending">
+        <div class="ending-book" aria-hidden="true"></div>
+        <h2>Happy Birthday.</h2>
+        <p>Thank you for reading.</p>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">x</button>
+      <div class="lightbox-photo"></div>
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.5.0/tsparticles.bundle.min.js"></script>
+    <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.4/dist/lottie-player.js"></script>
+    <script src="js/vendor-fallbacks.js"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

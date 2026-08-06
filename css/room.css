@@ -1,0 +1,60 @@
+.scene-room {
+  background:
+    radial-gradient(circle at 50% 58%, rgba(247, 205, 220, .42), transparent 35%),
+    linear-gradient(180deg, rgba(185, 221, 245, .2), rgba(255, 250, 248, .08));
+}
+
+.room-backdrop {
+  overflow: hidden;
+}
+
+.window {
+  position: absolute;
+  top: 11vh;
+  left: 50%;
+  width: min(62vw, 560px);
+  height: min(32vh, 250px);
+  border: 10px solid rgba(255, 250, 248, .65);
+  border-radius: 8px;
+  transform: translateX(-50%);
+  background: linear-gradient(#132542, #24365f);
+  box-shadow: 0 20px 80px rgba(0,0,0,.22);
+}
+
+.window span {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(255,255,255,.38) 49% 51%, transparent 52%),
+    linear-gradient(transparent 48%, rgba(255,255,255,.38) 49% 51%, transparent 52%);
+}
+
+.string-lights {
+  position: absolute;
+  top: 5vh;
+  left: 8vw;
+  right: 8vw;
+  height: 120px;
+  border-top: 2px solid rgba(255,255,255,.28);
+  border-radius: 50%;
+}
+
+.string-lights::before {
+  content: "";
+  position: absolute;
+  inset: 15px 0 auto;
+  height: 18px;
+  background: repeating-radial-gradient(circle at 10px 9px, #ffe9a8 0 5px, transparent 6px 54px);
+  filter: drop-shadow(0 0 12px #ffe9a8);
+}
+
+.floor-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -16vh;
+  width: min(92vw, 880px);
+  height: 34vh;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 238, 190, .52), transparent 67%);
+  transform: translateX(-50%);
+}

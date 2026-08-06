@@ -1,0 +1,60 @@
+.scene-book {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 238, 190, .38), transparent 52%),
+    linear-gradient(180deg, rgba(185, 221, 245, .18), rgba(247, 205, 220, .18));
+}
+
+.storybook {
+  width: min(92vw, 860px);
+  height: min(70vh, 560px);
+  filter: drop-shadow(0 30px 70px rgba(0,0,0,.34));
+}
+
+.book-page {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(22px, 4vw, 48px);
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.08), transparent 7%),
+    radial-gradient(circle at 18% 15%, rgba(255,255,255,.86), transparent 18%),
+    #fff8ef;
+  border: 1px solid rgba(169, 128, 61, .22);
+}
+
+.book-page h2,
+.book-page h3 {
+  margin: 0;
+  color: #334162;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.book-page p {
+  margin: 0;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.book-page.cover {
+  color: var(--white);
+  background:
+    linear-gradient(135deg, rgba(34, 57, 93, .85), rgba(97, 65, 104, .8)),
+    radial-gradient(circle at 35% 24%, rgba(255, 238, 190, .42), transparent 28%);
+}
+
+.book-page.cover h2 { color: var(--white); }
+
+.book-page.final-page {
+  justify-items: center;
+}
+
+.book-hint {
+  position: absolute;
+  bottom: 4vh;
+  color: rgba(255,250,248,.74);
+  font-size: .94rem;
+}
